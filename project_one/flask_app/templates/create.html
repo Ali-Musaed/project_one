@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Create User</title>
+    <style>
+        #main-container {
+            width: 1470px;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+        #head {
+            width: 1470px;
+            height: 75px;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-left: 435px;
+        }
+    </style>
+</head>
+<body>
+    <div id = 'main-container'>
+        <div id ='head'>
+            <h4>Add A User</h4>
+            <a href="/home">Home</a>
+        </div>
+        <form action="/into" method="POST">
+            {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+    {% if messages %}                            <!-- check if there are any messages -->
+        {% for message in messages %}            <!-- loop through the messages -->
+            <p>{{message}}</p>                   <!-- display each message in a paragraph tag -->
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+        <div class="form-outline mb-4">
+            <label for="insertion" class="form-label">First Name:</label>
+            <input type="text" name='first_name' class="form-control">
+        </div>
+        <div class="form-outline mb-4">
+            <label for="insertion" class="form-label">Last Name:</label>
+            <input type="text" name= 'last_name' class="form-control">
+        </div>
+        <div>
+            <label for="insertion" class="form-label">Email:</label>
+            <input type="text" name= 'email' class="form-control">
+        </div>
+            <button  class="btn btn-primary btn-block">submit</button>
+        </form>
+    </div>
+</body>
+</html>
